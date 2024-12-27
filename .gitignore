@@ -1,5 +1,8 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# FirebaseCreds
+/src/app/firebase/firebaseApp.ts
+
 # Compiled output
 /dist
 /tmp
