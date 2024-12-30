@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import {JsonPipe} from "@angular/common";
 
 @Component({
   selector: 'app-animals',
-  standalone: true,
-  imports: [],
   templateUrl: './animals.component.html',
-  styleUrl: './animals.component.css'
+  styleUrls: ['./animals.component.css'],
+  standalone: true,
+  imports: [
+    JsonPipe
+  ],
 })
 export class AnimalsComponent {
-
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import { AuthService } from '../services/AuthService';
 import { getAuth, signOut } from 'firebase/auth';
 
@@ -7,7 +7,8 @@ import { getAuth, signOut } from 'firebase/auth';
   selector: 'app-pages',
   standalone: true,
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    RouterLink
   ],
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.css']
