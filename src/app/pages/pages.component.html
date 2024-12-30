@@ -1,1 +1,12 @@
-<p>pages works!</p>
+<nav class="navbar">
+  <div class="navbar-left">
+    <h1>My App</h1>
+  </div>
+  <div class="navbar-right">
+    <button class="logout-button" (click)="onLogout()">Logout</button>
+  </div>
+</nav>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

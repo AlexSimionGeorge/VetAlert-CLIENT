@@ -4,6 +4,8 @@ import { FirebaseApp, initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase/firebaseApp";
 import { FormsModule } from "@angular/forms";
 import { NgIf } from "@angular/common";
+import { Router } from '@angular/router';
+import { AuthService } from "../services/AuthService";
 
 const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
@@ -18,24 +20,25 @@ const auth = getAuth(firebaseApp);
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
-  email: string = '';
-  password: string = '';
+export class LoginComponent {
   errorMessage: string | null = null;
 
   provider = new GoogleAuthProvider();
 
+  constructor(private router: Router, private authService: AuthService) {}
+
   onGoogleLogin(): void {
     signInWithPopup(auth, this.provider)
-      .then((result) => {
-        // The signed-in user info.
+      .then(async (result) => {
         const user = result.user;
-        console.log('Google Sign-In successful. User:', user);
+        //console.log('Google Sign-In successful. User:', user);
 
-        // This gives you a Google Access Token, if needed.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
+        const idToken = await user.getIdToken();
+
+        this.authService.setToken(idToken);
         this.errorMessage = null;
+
+        await this.router.navigate(['/']);
       })
       .catch((error) => {
         console.error('Error during Google Sign-In:', error);

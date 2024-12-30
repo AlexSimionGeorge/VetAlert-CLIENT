@@ -1,23 +1,29 @@
 import { Injectable } from '@angular/core';
-import { getAuth, onAuthStateChanged, User } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private auth = getAuth();
-  private userSubject = new BehaviorSubject<User | null>(null);
+  private tokenSubject = new BehaviorSubject<string | null>(null);
 
-  user$ = this.userSubject.asObservable();
+  token$ = this.tokenSubject.asObservable();
 
-  constructor() {
-    onAuthStateChanged(this.auth, (user) => {
-      this.userSubject.next(user);
-    });
+  setToken(token: string): void {
+    this.tokenSubject.next(token);
+    sessionStorage.setItem('authToken', token);
+  }
+
+  getToken(): string | null {
+    return this.tokenSubject.value || sessionStorage.getItem('authToken');
+  }
+
+  clearToken(): void {
+    this.tokenSubject.next(null);
+    sessionStorage.removeItem('authToken');
   }
 
   isAuthenticated(): boolean {
-    return this.userSubject.value !== null;
+    return this.getToken() !== null;
   }
 }
