@@ -52,9 +52,7 @@ export class LoginComponent {
   updateUserData(): void {
     this.http.post(backendApiUrl + '/api/veterinarian/', {})
       .subscribe({
-        next: (response) => {
-          console.log(response);
-        },
+        next: (response) => {},
         error: (err) => {
           console.error('Error fetching data:', err);
         }

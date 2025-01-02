@@ -1,2 +1,33 @@
+<div class="animal-cards-container">
+  <ng-container *ngIf="animals$ | async as animals; else loading">
+    <div *ngFor="let animal of animals" class="animal-card">
+      <div class="animal-details">
+        <h3>{{ animal.name }}</h3>
+        <p><strong>Species:</strong> {{ animal.species }}</p>
+        <p><strong>Owner ID:</strong> {{ animal.owner }}</p>
+        <p><strong>Veterinarian ID:</strong> {{ animal.veterinarian }}</p>
+      </div>
+      <div class="animal-card-buttons">
+        <button mat-button color="primary" (click)="openModal('edit', animal)">Edit</button>
+        <button mat-button color="warn" (click)="deleteAnimal(animal.aid)">Delete</button>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <p>Loading animals...</p>
+  </ng-template>
+</div>
 
+<!-- Add a button to open the modal -->
+<div class="add-animal-button">
+  <button mat-raised-button color="primary" (click)="openModal('create')">Add New Animal</button>
+</div>
 
+<!-- Modal -->
+<ng-container *ngIf="isModalOpen">
+  <app-form-pop-up
+    [mode]="modalMode"
+    [animal]="selectedAnimal"
+    (close)="closeModal()">
+  </app-form-pop-up>
+</ng-container>
