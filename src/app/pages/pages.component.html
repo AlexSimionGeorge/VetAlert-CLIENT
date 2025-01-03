@@ -1,11 +1,9 @@
 <nav class="navbar">
-  <div class="navbar-left">
-    <h1>My App</h1>
-    <button class="animals-button" routerLink="/animals">Animals</button>
+  <div class="nav-links">
+    <button routerLink="/animals" class="nav-button">Animals</button>
+    <!-- Add more route links here if needed -->
   </div>
-  <div class="navbar-right">
-    <button class="logout-button" (click)="onLogout()">Logout</button>
-  </div>
+  <button class="logout-button" (click)="onLogout()">Logout</button>
 </nav>
 
 <div class="content">

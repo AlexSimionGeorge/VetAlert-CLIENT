@@ -1,15 +1,17 @@
 <div class="animal-cards-container">
   <ng-container *ngIf="animals$ | async as animals; else loading">
     <div *ngFor="let animal of animals" class="animal-card">
-      <div class="animal-details">
-        <h3>{{ animal.name }}</h3>
-        <p><strong>Species:</strong> {{ animal.species }}</p>
-        <p><strong>Owner ID:</strong> {{ animal.owner }}</p>
-        <p><strong>Veterinarian ID:</strong> {{ animal.veterinarian }}</p>
+      <div class="animal-picture">
+        <img [src]="animal.picture" alt="{{ animal.name }}" />
       </div>
-      <div class="animal-card-buttons">
-        <button mat-button color="primary" (click)="openModal('edit', animal)">Edit</button>
-        <button mat-button color="warn" (click)="deleteAnimal(animal.aid)">Delete</button>
+      <div class="animal-info">
+        <h3 class="animal-name">{{ animal.name }}</h3>
+        <p class="animal-species"><strong>Species:</strong> {{ animal.species }}</p>
+        <p class="animal-owner"><strong>Owner:</strong> {{ animal.owner }}</p>
+      </div>
+      <div class="animal-actions">
+        <button mat-button class="edit-button" color="primary" (click)="openModal('edit', animal)">Edit</button>
+        <button mat-button class="delete-button" color="warn" (click)="deleteAnimal(animal.aid)">Delete</button>
       </div>
     </div>
   </ng-container>
@@ -18,9 +20,8 @@
   </ng-template>
 </div>
 
-<!-- Add a button to open the modal -->
 <div class="add-animal-button">
-  <button mat-raised-button color="primary" (click)="openModal('create')">Add New Animal</button>
+  <button mat-raised-button class="new-animal-button" color="primary" (click)="openModal('create')">+ New Animal</button>
 </div>
 
 <!-- Modal -->

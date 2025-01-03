@@ -1,34 +1,49 @@
+/* Navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
+  background-color: #18232b; /* Dark blue/grey */
+  padding: 16px 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-left h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.navbar-right {
+/* Links container (aligned to the left) */
+.nav-links {
   display: flex;
-  align-items: center;
+  gap: 12px; /* Spacing between links */
 }
 
-.logout-button {
-  background-color: #ff4b4b;
+/* Route links */
+.nav-button {
+  background-color: #34495e; /* Slightly lighter dark grey/blue */
   color: white;
   border: none;
   padding: 8px 16px;
   font-size: 1rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 20px; /* Fully rounded */
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #3e566d; /* Hover effect */
+}
+
+/* Logout button (aligned to the right) */
+.logout-button {
+  background-color: #e74c3c; /* Red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 20px; /* Fully rounded */
+  transition: background-color 0.3s ease;
 }
 
 .logout-button:hover {
-  background-color: #e53e3e;
+  background-color: #c0392b; /* Darker red on hover */
 }
 
 .content {
