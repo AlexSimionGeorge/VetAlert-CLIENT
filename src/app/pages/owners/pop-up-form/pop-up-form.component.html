@@ -1,0 +1,42 @@
+<div class="modal-container">
+    <div class="modal-content">
+      <h2>{{ mode === 'create' ? 'Add New Owner' : 'Edit Owner' }}</h2>
+      <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <mat-form-field appearance="outline" class="input-field">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required />
+          <mat-error *ngIf="ownerForm.get('name')?.hasError('required')">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Species Field -->
+        <mat-form-field appearance="outline" class="input-field">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required />
+          <mat-error *ngIf="ownerForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Button Group -->
+        <div class="button-group">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="ownerForm.invalid"
+          >
+            {{ mode === 'create' ? 'Add Owner' : 'Update Owner' }}
+          </button>
+          <button mat-button color="warn" type="button" (click)="close.emit()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+  

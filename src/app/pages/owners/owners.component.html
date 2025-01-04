@@ -1,0 +1,29 @@
+<div class="owners-cards-container">
+    <div *ngFor="let owner of owners | async" class="owner-card">
+      <div class="c">
+        <h3 class="owner-name">{{ owner.name }}</h3>
+        <p class="owner-email">Email: {{ owner.email }}</p>
+        <p class="owner-veterinarian">Veterinarian: {{ owner.veterinarian }}</p>
+      </div>
+      <div class="owner-info-actions">
+        <button mat-button class="edit-button" color="primary" (click)="openModal('edit', owner)">Edit</button>
+        <button mat-button class="delete-button" color="warn" (click)="deleteOwner(owner.oid)">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="add-animal-button">
+    <button mat-raised-button class="new-animal-button" color="primary" (click)="openModal('create')">+ New Animal</button>
+  </div>
+  
+  
+  <!-- Modal -->
+  <ng-container *ngIf="isModalOpen">
+    <app-form-pop-up-owners
+      [mode]="modalMode"
+      [owner]="selectedOwner"
+      (close)="closeModal()">
+    </app-form-pop-up-owners>
+  </ng-container>
+  
