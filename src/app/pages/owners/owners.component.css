@@ -1,55 +1,66 @@
 .owners-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-  }
-  
-  .owner-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    background-color: #fff;
-  }
-  
-  .owner-info {
-    width: 100%;
-  }
-  
-  .owner-name {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .owner-email,
-  .owner-veterinarian {
-    margin: 4px 0;
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  .owner-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .edit-button {
-    background: #2196f3;
-    border-radius: 8px;
-    color: white;
-  }
-  
-  .delete-button {
-    background: #ff4b4b;
-    border-radius: 8px;
-    color: white;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.owner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  background-color: #fff;
+}
+
+.owner-info {
+  width: 100%;
+}
+
+.owner-name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.owner-email,
+.owner-veterinarian {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.owner-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edit-button {
+  background: #2196f3;
+  border-radius: 8px;
+  color: white;
+}
+
+.delete-button {
+  background: #ff4b4b;
+  border-radius: 8px;
+  color: white;
+}
+
+.add-owner-button {
+display: flex;
+justify-content: center;
+margin-top: 24px;
+}
+
+.new-owner-button {
+font-size: 1rem;
+font-weight: bold;
+}
+

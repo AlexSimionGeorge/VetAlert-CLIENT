@@ -1,0 +1,30 @@
+<div class="items-cards-container">
+    <div *ngFor="let item of items | async" class="item-card">
+      <div class="c">
+        <h3 class="item-name">{{ item.name }}</h3>
+        <p class="item-code_number">code number: {{ item.code_number }}</p>
+        <p class="item-expiration_date">expiration date: {{ item.expiration_date }}</p>
+        <p class="item-notes">notes: {{ item.notes }}</p>
+      </div>
+      <div class="item-info-actions">
+        <button mat-button class="edit-button" color="primary" (click)="openModal('edit', item)">Edit</button>
+        <button mat-button class="delete-button" color="warn" (click)="deleteOwner(item.iid)">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="add-item-button">
+    <button mat-raised-button class="new-item-button" color="primary" (click)="openModal('create')">+ New Item</button>
+  </div>
+  
+  
+  <!-- Modal -->
+  <ng-container *ngIf="isModalOpen">
+    <app-form-pop-up-items
+      [mode]="modalMode"
+      [item]="selectedItem"
+      (close)="closeModal()">
+    </app-form-pop-up-items>
+  </ng-container>
+  
