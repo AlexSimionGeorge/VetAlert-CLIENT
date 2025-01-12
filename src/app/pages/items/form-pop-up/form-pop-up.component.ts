@@ -2,9 +2,15 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ItemRequests} from "../../ requests/Item.requests";
 import {MatButton} from "@angular/material/button";
-import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatError, MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @Component({
   selector: 'app-form-pop-up-items',
@@ -16,7 +22,16 @@ import {NgIf} from "@angular/common";
     MatInput,
     MatLabel,
     NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerToggle,
+    MatDatepicker,
+    MatDatepickerInput,
+    MatNativeDateModule,
+    MatHint,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
   ],
   templateUrl: './form-pop-up.component.html',
   styleUrl: './form-pop-up.component.css'
@@ -31,7 +46,7 @@ export class FormPopUpComponent {
     this.itemForm = this.fb.group({
       name: ['', []],
       code_number: ['', []],
-      expiration_date: ['', []],
+      expiration_date: [null, []],
       notes: ['', []],
       veterinarian: ['', []]
     });

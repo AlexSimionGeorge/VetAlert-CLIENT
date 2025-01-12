@@ -44,7 +44,7 @@ export class LoginComponent {
 
         this.updateUserData();
 
-        await this.router.navigate(['/']);
+        await this.router.navigate(['/animals']);
       })
       .catch((error) => {
         console.error('Error during Google Sign-In:', error);

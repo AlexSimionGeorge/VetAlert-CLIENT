@@ -23,7 +23,14 @@
       <!-- Expiration Date Field -->
       <mat-form-field appearance="outline" class="input-field">
         <mat-label>Expiration Date</mat-label>
-        <input matInput formControlName="expiration_date" required />
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="expiration_date"
+          readonly
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="itemForm.get('expiration_date')?.hasError('required')">
           Expiration Date is required
         </mat-error>
