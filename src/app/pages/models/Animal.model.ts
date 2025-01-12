@@ -1,10 +1,10 @@
-import {Owner} from "./Owner.model";
+import {OwnerModel} from "./Owner.model";
 
-export interface Animal {
+export interface AnimalModel {
   aid: string;
   name: string;
   species: string;
   picture: string;
-  owner: Owner;
+  owner: OwnerModel;
   veterinarian: string;
 }

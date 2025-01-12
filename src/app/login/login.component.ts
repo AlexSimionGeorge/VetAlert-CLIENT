@@ -39,7 +39,7 @@ export class LoginComponent {
         const idToken = await user.getIdToken();
 
         this.authService.setToken(idToken);
-        // console.log(idToken);
+        console.log(idToken);
         this.errorMessage = null;
 
         this.updateUserData();

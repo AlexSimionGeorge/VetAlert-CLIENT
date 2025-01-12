@@ -7,7 +7,7 @@ import {AnimalRequests} from "../../ requests/Animal.requests";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {Observable} from "rxjs";
-import {Owner} from "../../models/Owner.model";
+import {OwnerModel} from "../../models/Owner.model";
 import {OwnerRequests} from "../../ requests/Owner.requests";
 
 @Component({
@@ -36,7 +36,7 @@ export class FormPopUpComponent implements OnInit{
 
   animalForm: FormGroup;
   selectedFile: File | null = null;
-  owners!: Observable<Owner[]>;
+  owners!: Observable<OwnerModel[]>;
 
   constructor(private fb: FormBuilder, private animalRequests: AnimalRequests, private ownerRequests: OwnerRequests) {
     this.animalForm = this.fb.group({

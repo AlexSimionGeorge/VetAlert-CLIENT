@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {Owner} from "../models/Owner.model";
+import {OwnerModel} from "../models/Owner.model";
 import {OwnerRequests} from "../ requests/Owner.requests";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
@@ -22,7 +22,7 @@ import {PopUpFormComponent} from "./pop-up-form/pop-up-form.component";
   styleUrl: './owners.component.css'
 })
 export class OwnersComponent implements OnInit {
-  owners!: Observable<Owner[]>;
+  owners!: Observable<OwnerModel[]>;
   isModalOpen = false;
   modalMode: 'create' | 'edit' = 'create';
   selectedOwner: any = null;

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { backendApiUrl } from './config';
-import {Owner} from "../models/Owner.model";
+import {OwnerModel} from "../models/Owner.model";
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,8 @@ export class OwnerRequests {
 
   constructor(private http: HttpClient) {}
 
-  getOwners(): Observable<Owner[]> {
-    return this.http.get<Owner[]>(this.ownerEndPoint);
+  getOwners(): Observable<OwnerModel[]> {
+    return this.http.get<OwnerModel[]>(this.ownerEndPoint);
   }
 
 
@@ -22,12 +22,12 @@ export class OwnerRequests {
     return this.http.delete<void>(url);
   }
 
-  createOwner(owner: any): Observable<Owner> {
-    return this.http.post<Owner>(this.ownerEndPoint, owner);
+  createOwner(owner: any): Observable<OwnerModel> {
+    return this.http.post<OwnerModel>(this.ownerEndPoint, owner);
   }
 
-  updateOwner(owner: any, id : string): Observable<Owner> {
-    return this.http.put<Owner>(this.ownerEndPoint + id + '/', owner);
+  updateOwner(owner: any, id : string): Observable<OwnerModel> {
+    return this.http.put<OwnerModel>(this.ownerEndPoint + id + '/', owner);
   }
 
 }

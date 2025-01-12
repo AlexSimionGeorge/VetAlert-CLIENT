@@ -1,4 +1,4 @@
-export interface Item{
+export interface ItemModel {
     iid: string;
     name: string;
     code_number: string;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Animal } from '../models/Animal.model';
+import { AnimalModel } from '../models/Animal.model';
 import { AsyncPipe, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { Observable } from 'rxjs';
 import { FormPopUpComponent } from './form-pop-up/form-pop-up.component';
@@ -21,7 +21,7 @@ import {MatButton} from "@angular/material/button";
   ],
 })
 export class AnimalsComponent implements OnInit {
-  animals$!: Observable<Animal[]>;
+  animals$!: Observable<AnimalModel[]>;
   isModalOpen = false;
   modalMode: 'create' | 'edit' = 'create';
   selectedAnimal: any = null;

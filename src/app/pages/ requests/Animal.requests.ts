@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Animal } from '../models/Animal.model';
+import { AnimalModel } from '../models/Animal.model';
 import { backendApiUrl } from './config';
 
 @Injectable({
@@ -12,8 +12,8 @@ export class AnimalRequests {
 
   constructor(private http: HttpClient) {}
 
-  getAnimals(): Observable<Animal[]> {
-    return this.http.get<Animal[]>(this.animalEndPoint);
+  getAnimals(): Observable<AnimalModel[]> {
+    return this.http.get<AnimalModel[]>(this.animalEndPoint);
   }
 
   deleteAnimal(animalId: string): Observable<void> {
@@ -21,12 +21,12 @@ export class AnimalRequests {
     return this.http.delete<void>(url);
   }
 
-  createAnimal(animal: any): Observable<Animal> {
-    return this.http.post<Animal>(this.animalEndPoint, animal);
+  createAnimal(animal: any): Observable<AnimalModel> {
+    return this.http.post<AnimalModel>(this.animalEndPoint, animal);
   }
 
-  updateAnimal(animal: any, id : string): Observable<Animal> {
-    return this.http.put<Animal>(this.animalEndPoint + id + '/', animal);
+  updateAnimal(animal: any, id : string): Observable<AnimalModel> {
+    return this.http.put<AnimalModel>(this.animalEndPoint + id + '/', animal);
   }
 
 }

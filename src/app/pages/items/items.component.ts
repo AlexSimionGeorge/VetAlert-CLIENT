@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemRequests} from "../ requests/Item.requests";
 import {Observable} from "rxjs";
-import {Item} from "../models/Item.model";
+import {ItemModel} from "../models/Item.model";
 import {AsyncPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {PopUpFormComponent} from "../owners/pop-up-form/pop-up-form.component";
@@ -23,7 +23,7 @@ import {FormPopUpComponent} from "./form-pop-up/form-pop-up.component";
   styleUrl: './items.component.css'
 })
 export class ItemsComponent implements OnInit {
-  items!: Observable<Item[]>;
+  items!: Observable<ItemModel[]>;
   isModalOpen = false;
   modalMode: 'create' | 'edit' = 'create';
   selectedItem: any = null;
