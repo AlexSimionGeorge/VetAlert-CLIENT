@@ -1,11 +1,14 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
 import {MatError, MatFormField, MatLabel} from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import {AnimalRequests} from "../../ requests/Animal.requests";
-import {NgIf} from "@angular/common";
+import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+import {MatOption, MatSelect} from "@angular/material/select";
+import {Observable} from "rxjs";
+import {Owner} from "../../models/Owner.model";
+import {OwnerRequests} from "../../ requests/Owner.requests";
 
 @Component({
   selector: 'app-form-pop-up',
@@ -19,18 +22,23 @@ import {NgIf} from "@angular/common";
     MatButton,
     NgIf,
     MatError,
+    MatSelect,
+    MatOption,
+    NgForOf,
+    AsyncPipe,
   ],
   standalone: true,
 })
-export class FormPopUpComponent {
+export class FormPopUpComponent implements OnInit{
   @Input() mode: 'create' | 'edit' = 'create';
   @Input() animal: any = null;
   @Output() close = new EventEmitter<void>();
 
   animalForm: FormGroup;
   selectedFile: File | null = null;
+  owners!: Observable<Owner[]>;
 
-  constructor(private fb: FormBuilder, private animalRequests: AnimalRequests) {
+  constructor(private fb: FormBuilder, private animalRequests: AnimalRequests, private ownerRequests: OwnerRequests) {
     this.animalForm = this.fb.group({
       name: ['', []],
       species: ['', []],
@@ -39,7 +47,9 @@ export class FormPopUpComponent {
     });
   }
 
-  ngOnChanges() {
+  ngOnInit(): void {
+    this.loadOwners();
+
     if (this.mode === 'edit' && this.animal) {
       this.animalForm.patchValue({
         name: this.animal.name,
@@ -48,6 +58,10 @@ export class FormPopUpComponent {
         owner: this.animal.owner,
       });
     }
+  }
+
+  loadOwners(): void {
+    this.owners = this.ownerRequests.getOwners();
   }
 
   onSubmit(): void {

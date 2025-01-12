@@ -7,7 +7,7 @@
       <div class="animal-info">
         <h3 class="animal-name">{{ animal.name }}</h3>
         <p class="animal-species"><strong>Species:</strong> {{ animal.species }}</p>
-        <p class="animal-owner"><strong>Owner:</strong> {{ animal.owner }}</p>
+        <p class="animal-owner"><strong>Owner:</strong> {{ animal.owner.name }}</p>
       </div>
       <div class="animal-actions">
         <button mat-button class="edit-button" color="primary" (click)="openModal('edit', animal)">Edit</button>

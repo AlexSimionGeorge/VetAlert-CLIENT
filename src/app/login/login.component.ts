@@ -34,10 +34,12 @@ export class LoginComponent {
       .then(async (result) => {
         const user = result.user;
 
+
+
         const idToken = await user.getIdToken();
 
         this.authService.setToken(idToken);
-        console.log(idToken);
+        // console.log(idToken);
         this.errorMessage = null;
 
         this.updateUserData();
@@ -53,7 +55,9 @@ export class LoginComponent {
   updateUserData(): void {
     this.http.post(backendApiUrl + '/api/veterinarian/', {})
       .subscribe({
-        next: (response) => {},
+        next: (response) => {
+          //console.log("response:", response)
+        },
         error: (err) => {
           console.error('Error fetching data:', err);
         }

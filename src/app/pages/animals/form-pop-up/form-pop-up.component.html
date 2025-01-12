@@ -23,13 +23,13 @@
       <!-- Picture Field -->
       <input type="file" id="file" (change)="onFileSelected($event)" />
 
-      <!-- Owner Field -->
-      <mat-form-field appearance="outline" class="input-field">
+      <mat-form-field>
         <mat-label>Owner</mat-label>
-        <input matInput formControlName="owner" required />
-        <mat-error *ngIf="animalForm.get('owner')?.hasError('required')">
-          Owner is required
-        </mat-error>
+        <mat-select formControlName="owner">
+          <mat-option *ngFor="let owner of (owners | async)" [value]="owner.oid">
+            {{ owner.name }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <!-- Button Group -->
