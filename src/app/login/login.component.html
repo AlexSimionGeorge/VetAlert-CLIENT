@@ -1,9 +1,15 @@
 <div class="login-container">
-  <h1>Login</h1>
+  <div class="login-box">
+    <div class="title">
+     <h1>VetAlert</h1></div>
 
-  <button (click)="onGoogleLogin()" class="google-login-button">Sign in with Google</button>
+    <button (click)="onGoogleLogin()" class="google-login-button">
+      <img src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png" alt="Google Logo" width="24">
+      Sign in with Google
+    </button>
 
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
   </div>
 </div>

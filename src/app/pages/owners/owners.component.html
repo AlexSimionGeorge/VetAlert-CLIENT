@@ -3,7 +3,6 @@
     <div class="c">
       <h3 class="owner-name">{{ owner.name }}</h3>
       <p class="owner-email">Email: {{ owner.email }}</p>
-      <p class="owner-veterinarian">Veterinarian: {{ owner.veterinarian }}</p>
     </div>
     <div class="owner-info-actions">
       <button mat-button class="edit-button" color="primary" (click)="openModal('edit', owner)">Edit</button>
@@ -14,7 +13,7 @@
 
 
 <div class="add-owner-button">
-  <button mat-raised-button class="new-owner-button" color="primary" (click)="openModal('create')">+ New Animal</button>
+  <button mat-raised-button class="new-owner-button" color="primary" (click)="openModal('create')">+ New Owner</button>
 </div>
 
 
