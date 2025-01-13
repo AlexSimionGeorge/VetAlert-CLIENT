@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { FormPopUpComponent } from './form-pop-up/form-pop-up.component';
 import {AnimalRequests} from "../ requests/Animal.requests";
 import {MatButton} from "@angular/material/button";
+import {TreatmentLogComponent} from "./treatment-log/treatment-log.component";
 
 @Component({
   selector: 'app-animals',
@@ -18,13 +19,16 @@ import {MatButton} from "@angular/material/button";
     AsyncPipe,
     FormPopUpComponent,
     MatButton,
+    TreatmentLogComponent,
   ],
 })
 export class AnimalsComponent implements OnInit {
   animals$!: Observable<AnimalModel[]>;
-  isModalOpen = false;
-  modalMode: 'create' | 'edit' = 'create';
+  isNewUpdateModalOpen = false;
+  isTreatmentLogModalOpen:boolean = false;
+  modalNewUpdateMode: 'create' | 'edit' = 'create';
   selectedAnimal: any = null;
+
 
   constructor(private animalRequests: AnimalRequests) {}
 
@@ -47,14 +51,23 @@ export class AnimalsComponent implements OnInit {
     });
   }
 
-  openModal(mode: 'create' | 'edit', animal: any = null) {
-    this.isModalOpen = true;
-    this.modalMode = mode;
+  openNewUpdateModal(mode: 'create' | 'edit', animal: any = null) {
+    this.isNewUpdateModalOpen = true;
+    this.modalNewUpdateMode = mode;
     this.selectedAnimal = animal;
   }
 
-  closeModal() {
-    this.isModalOpen = false;
+  closeNewUpdateModal() {
+    this.isNewUpdateModalOpen = false;
     this.loadAnimals();
+  }
+
+  openTreatmentLogModal(animal: AnimalModel) {
+    this.isTreatmentLogModalOpen = true;
+    this.selectedAnimal = animal;
+  }
+
+  closeTreatmentLogModal() {
+    this.isTreatmentLogModalOpen = false;
   }
 }

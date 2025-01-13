@@ -14,7 +14,7 @@
       <!-- Species Field -->
       <mat-form-field appearance="outline" class="input-field">
         <mat-label>Species</mat-label>
-        <input matInput formControlName="species" required />
+        <input matInput formControlName="species"/>
         <mat-error *ngIf="animalForm.get('species')?.hasError('required')">
           Species is required
         </mat-error>
@@ -22,7 +22,10 @@
 
       <!-- Picture Field -->
       <input type="file" id="file" (change)="onFileSelected($event)" />
+      <p></p>
 
+
+      <!-- Owner Field -->
       <mat-form-field>
         <mat-label>Owner</mat-label>
         <mat-select formControlName="owner">

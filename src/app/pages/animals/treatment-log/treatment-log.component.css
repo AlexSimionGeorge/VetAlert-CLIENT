@@ -1,0 +1,103 @@
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark, semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it appears on top of everything */
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    animation: scaleUp 0.3s ease-in-out;
+  }
+  
+  /* Keyframes for modal animation */
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Existing container and card styles */
+  .treatment-logs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  
+  .treatment-log-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    background-color: #fff;
+  }
+  
+  .treatment-log-info {
+    flex: 1;
+  }
+  
+  .treatment-log-item-name {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .treatment-log-field {
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Action buttons */
+  .treatment-log-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .edit-button {
+    background: #2196f3;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .delete-button {
+    background: #ff4b4b;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .page-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  
+  .new-treatment-log-button {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  

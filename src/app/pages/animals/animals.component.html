@@ -10,7 +10,8 @@
         <p class="animal-owner"><strong>Owner:</strong> {{ animal.owner.name }}</p>
       </div>
       <div class="animal-actions">
-        <button mat-button class="edit-button" color="primary" (click)="openModal('edit', animal)">Edit</button>
+        <button mat-button class="edit-button" color="primary" (click)="openNewUpdateModal('edit', animal)">Edit</button>
+        <button mat-button class="history-button" color="secondary" (click)="openTreatmentLogModal(animal)">History</button>
         <button mat-button class="delete-button" color="warn" (click)="deleteAnimal(animal.aid)">Delete</button>
       </div>
     </div>
@@ -21,14 +22,24 @@
 </div>
 
 <div class="add-animal-button">
-  <button mat-raised-button class="new-animal-button" color="primary" (click)="openModal('create')">+ New Animal</button>
+  <button mat-raised-button class="new-animal-button" color="primary" (click)="openNewUpdateModal('create')">+ New Animal</button>
 </div>
 
-<!-- Modal -->
-<ng-container *ngIf="isModalOpen">
+<!-- New/Update Modal -->
+<ng-container *ngIf="isNewUpdateModalOpen">
   <app-form-pop-up
-    [mode]="modalMode"
+    [mode]="modalNewUpdateMode"
     [animal]="selectedAnimal"
-    (close)="closeModal()">
+    (close)="closeNewUpdateModal()">
   </app-form-pop-up>
+</ng-container>
+
+<!-- TreatmentLog modal -->
+<p></p>
+<p></p>
+<ng-container *ngIf="isTreatmentLogModalOpen">
+  <app-treatment-log
+    [animal]="selectedAnimal"
+    (close)="closeTreatmentLogModal()">
+  </app-treatment-log>
 </ng-container>
