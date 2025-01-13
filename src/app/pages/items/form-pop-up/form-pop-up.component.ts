@@ -69,7 +69,10 @@ export class FormPopUpComponent {
       const formData = new FormData();
       formData.append('name', this.itemForm.get('name')?.value);
       formData.append('code_number', this.itemForm.get('code_number')?.value);
-      formData.append('expiration_date', this.itemForm.get('expiration_date')?.value);
+
+      const unixTimestamp = new Date(this.itemForm.get('expiration_date')?.value).getTime() / 1000;
+      formData.append('expiration_date', unixTimestamp.toString());
+
       formData.append('notes', this.itemForm.get('notes')?.value);
 
       if (this.mode === 'create') {

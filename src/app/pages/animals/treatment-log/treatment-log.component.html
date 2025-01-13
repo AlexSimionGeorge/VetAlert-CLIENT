@@ -1,27 +1,34 @@
-<div class="treatment-logs-container">
+<div class="modal-overlay">
+  <div class="modal-content">
     <ng-container *ngIf="treatmentLogs | async as logs; else loading">
-      <div *ngFor="let log of logs" class="treatment-log-card">
-        <div class="treatment-log-info">
-          <p class="treatment-log-field"><strong>Item:</strong> {{ log.item.name }}</p>
-          <p class="treatment-log-field"><strong>Date:</strong> {{ log.date | date:'dd/MM/yyyy' }}</p>
-          <p class="treatment-log-field"><strong>Quantity:</strong> {{ log.quantity }}</p>
-        </div>
-        <div class="treatment-log-actions">
-          <button mat-button class="edit-button" color="primary" (click)="openNewUpdateModal('edit', log)">Edit</button>
-          <button mat-button class="delete-button" color="warn" (click)="deleteTreatmentLog(log.tlid)">Delete</button>
+      <div class="treatment-logs-container">
+        <div *ngFor="let log of logs" class="treatment-log-card">
+          <div class="treatment-log-info">
+            <p class="treatment-log-field"><strong>Item:</strong> {{ log.item.name }}</p>
+            <p class="treatment-log-field"><strong>Date:</strong> {{ log.date | date:'dd/MM/yyyy' }}</p>
+            <p class="treatment-log-field"><strong>Quantity:</strong> {{ log.quantity }}</p>
+          </div>
+          <div class="treatment-log-actions">
+            <button mat-button class="edit-button" color="primary" (click)="openNewUpdateModal('edit', log)">Edit</button>
+            <button mat-button class="delete-button" color="warn" (click)="deleteTreatmentLog(log.tlid)">Delete</button>
+          </div>
         </div>
       </div>
     </ng-container>
     <ng-template #loading>
       <p>Loading treatment logs...</p>
     </ng-template>
+    <div class="page-buttons">
+      <button mat-raised-button class="new-treatment-log-button" color="primary" (click)="openNewUpdateModal('create')">+ New Treatment Log</button>
+      <button mat-button class="cancel-button" color="warn" type="button" (click)="close.emit()">Cancel</button>
+    </div>
   </div>
-  
-  <div class="page-buttons">
-    <button mat-raised-button class="new-treatment-log-button" color="primary" (click)="openNewUpdateModal('create')">+ New Treatment Log</button>
-    <button mat-button color="warn" type="button" (click)="close.emit()">Cancel</button>
-  </div>
-  
+</div>
+
+
+
+
+
   <!-- TreatmentLog Modal -->
   <ng-container *ngIf="isTreatmentLogModalOpen">
     <div class="modal-overlay">
@@ -35,4 +42,3 @@
       </div>
     </div>
   </ng-container>
-  
