@@ -4,18 +4,18 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #6a11cb, #2575fc); 
+  background-color: rgba(0, 0, 0, 0.5);
   font-family: Arial, sans-serif;
 }
 
 
 .login-box {
   background: #ffffff;
-  padding: 40px 30px;
+  padding: 50px 40px;
   border-radius: 15px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
-  width: 300px;
-  height: 150px; 
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  width: 400px; /* Increase width */
+  height: 200px; /* Increase height */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,24 +24,25 @@
 }
 
 
+
 .title h1
 {
-  background: #55ffaa;
+  background: #ffffff;
   font-weight: bold;
   padding: 10px 7px;
   border-radius: 25px;
-  font-size: 37px;
+  font-size: 50px;
   align-self: flex-start;
-  align-self: center 
+  align-self: center
 }
 .login-box h1 {
   font-size: 2rem;
   font-family: "Georgia",serif;
-  font-size: 30px;
+  font-size: 50px;
   color: #333333;
   margin: 0;
   align-self: flex-start;
-  align-self: center 
+  align-self: center
 }
 
 
@@ -53,18 +54,18 @@
   padding: 12px 20px;
   border: none;
   border-radius: 25px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .google-login-button:hover {
-  background: #3367d6; 
-  transform: translateY(-2px); 
+  background: #3367d6;
+  transform: translateY(-2px);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
