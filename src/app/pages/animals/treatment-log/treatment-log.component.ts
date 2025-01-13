@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {TreatmentLogModel} from "../../models/TreatmentLog.model";
 import {TreatmentLogRequest} from "../../ requests/TreatmentLog.request";
 import {MatButton} from "@angular/material/button";
@@ -52,8 +52,19 @@ export class TreatmentLogComponent implements OnInit {
     this.loadTreatmentLogs();
   }
 
-  loadTreatmentLogs():void{
-    this.treatmentLogs = this.treatmentLogRequests.getTreatmentLogs(this.animal.aid)
+  // loadTreatmentLogs():void{
+  //   this.treatmentLogs = this.treatmentLogRequests.getTreatmentLogs(this.animal.aid)
+  // }
+
+  loadTreatmentLogs() {
+    this.treatmentLogs = this.treatmentLogRequests.getTreatmentLogs(this.animal.aid).pipe(
+      map((logs: any[]) =>
+        logs.map((log) => ({
+          ...log,
+          date: new Date(log.date * 1000),
+        }))
+      )
+    );
   }
 
   deleteTreatmentLog(tlid: string): void {
