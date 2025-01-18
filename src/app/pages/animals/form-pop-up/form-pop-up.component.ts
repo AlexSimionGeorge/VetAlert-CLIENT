@@ -55,7 +55,7 @@ export class FormPopUpComponent implements OnInit{
         name: this.animal.name,
         species: this.animal.species,
         picture: null,
-        owner: this.animal.owner,
+        owner: this.animal.owner.oid,
       });
     }
   }
