@@ -19,7 +19,7 @@ export class TreatmentLogRequest {
 
 
   deleteTreatmentLog(treatmentLogId: string): Observable<void> {
-    const url = `${this.treatmentLogEndPoint}${treatmentLogId}/`;
+    const url = `${this.treatmentLogEndPoint}delete/${treatmentLogId}/`;
     return this.http.delete<void>(url);
   }
 
